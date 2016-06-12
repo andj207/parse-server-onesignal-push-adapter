@@ -86,8 +86,6 @@ export class OneSignalPushAdapter {
         post['send_after'] = data['push_time'];
         delete data['push_time'];
     }
-    data["test_type"] = 1
-    post["test_type"] = 1
     post['data'] = data;
 
     let promise = new Parse.Promise();
