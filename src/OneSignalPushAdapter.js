@@ -70,6 +70,10 @@ export class OneSignalPushAdapter {
       }
       delete data['badge'];
     }
+    if(data['title']) {
+      post['headings'] = {en: data['title']};
+      delete data['title'];
+    }
     if(data['alert']) {
       post['contents'] = {en: data['alert']};
       delete data['alert'];
@@ -133,6 +137,10 @@ export class OneSignalPushAdapter {
 
     var post = {};
 
+    if(data['title']) {
+      post['headings'] = {en: data['title']};
+      delete data['title'];
+    }
     if(data['alert']) {
       post['contents'] = {en: data['alert']};
       delete data['alert'];
