@@ -86,6 +86,14 @@ export class OneSignalPushAdapter {
         post['send_after'] = data['push_time'];
         delete data['push_time'];
     }
+    if(data['uri']) {
+        post['url'] = data['uri'];
+        delete data["uri"]
+    }
+    if(data["mutable-content"] == 1){
+        post["mutable_content"] = true;
+        delete data["mutable-content"];
+    }
     post['data'] = data;
 
     let promise = new Parse.Promise();
@@ -133,13 +141,13 @@ export class OneSignalPushAdapter {
       post['title'] = {en: data['title']};
       delete data['title'];
     }
-      
     if(data['push_time']){
         post['send_after'] = data['push_time'];
         delete data['push_time'];
     }
     if(data['uri']) {
-      post['url'] = data['uri'];
+        post['url'] = data['uri'];
+        delete data["uri"]
     }
 
     post['data'] = data;
