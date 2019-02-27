@@ -5,22 +5,26 @@
 
 
 
-OneSignal push adapter for parse-server
+OneSignal push adapter for parse-server.
+This fork support multiple OneSignal apps in one application.
 
 
 ## Installation
 
 ```
-npm install --save parse-server-onesignal-push-adapter
+npm install --save git+https://git@github.com/andj207/parse-server-onesignal-push-adapter.git
 ```
 
 ## Usage
 
 ```
 var OneSignalPushAdapter = require('parse-server-onesignal-push-adapter');
-var oneSignalPushAdapter = new OneSignalPushAdapter({
-  oneSignalAppId:"your-one-signal-app-id",
-  oneSignalApiKey:"your-one-signal-api-key"
+let oneSignalPushAdapter = new OneSignalPushAdapter({
+    'app identifier matches with the value in Installation table to classify': {
+        oneSignalAppId: "",
+        oneSignalApiKey: ""
+    },
+    ....
 });
 
 var api = new ParseServer({
